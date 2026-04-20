@@ -49,11 +49,13 @@ class KwaiLiveStream(BaseLiveStream):
         """
 
         try:
-            if self.cookies.strip() != '':
+            if self.cookies and self.cookies.strip() != '':
                 name, status = await self.get_user_info(url)
                 if not status:
                     return {'anchor_name': name, 'is_live': status, 'live_url': url, 'type': 2}
             html_str = await async_req(url=url, proxy_addr=self.proxy_addr, headers=self.pc_headers)
+            if "账号封禁" in html_str:
+                raise Exception("[The account has been banned.]")
         except Exception as e:
             raise Exception(f"Failed to fetch data from {url}.{e}")
 

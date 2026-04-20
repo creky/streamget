@@ -19,7 +19,7 @@ async def async_req(
         return_cookies: bool = False,
         include_cookies: bool = False,
         verify: bool = False,
-        http2: bool = True
+        http2: bool = False
 ) -> OptionalDict | OptionalStr | tuple:
     """
     Sends an asynchronous HTTP request to the specified URL.

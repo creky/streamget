@@ -124,10 +124,5 @@ __all__ = [
     "__version__",
 ]
 
-__locals = locals()
-for __name in __all__:
-    if not __name.startswith("__"):
-        __locals[__name].__module__ = "streamget"
-
 # from .scripts.node_setup import check_node
 # check_node()

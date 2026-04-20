@@ -94,6 +94,8 @@ class DouyinUtils:
                     unique_id = matches[-1]
                     return unique_id
                 else:
+                    if profile_response.text.find("\"title\":\"账号已经注销\"")>=0:
+                        raise RuntimeError("The account has been deleted.")
                     raise RuntimeError("Could not find unique_id in the response.")
 
         except UnsupportedUrlError as e:
