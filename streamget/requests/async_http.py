@@ -91,7 +91,7 @@ async def get_response_status(
         headers: OptionalDict = None,
         timeout: int = 10,
         verify: bool = False,
-        http2: bool = True
+        http2: bool = False
 ) -> int:
     """
     Checks if a URL returns a successful HTTP status code (200 OK).
